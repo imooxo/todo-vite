@@ -1,0 +1,45 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "target": "ES5",
+    "useDefineForClassFields": true,
+    "module": "CommonJS",
+    "lib": [ //TypeScirpt 컴파일러가 코드에서 사용할 수 있는 내장 라이브러리
+      "ESNext",
+      "DOM", // DOM 관련 API
+      "DOM.Iterable" //DOM 관련 API
+    ],
+    "skipLibCheck": true,
+    //"esModuleInterop": true, // 이거해야 자체 모듈 허용 에러 사라짐
+
+    /* Bundler mode */
+    "moduleResolution": "node",
+    "emitDeclarationOnly": true,
+    "allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports" : true, //default exports
+    "resolveJsonModule": true, //JSON 모듈 허용
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": false,
+
+    /* Linting */
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+
+    /* vite.config.ts path 설정 */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "@idle/todo-vite/*": ["node_modules/@idle/todo-vite/dist/*"],
+      "@components/*": ["src/components/*"],
+      "@stores/*": ["src/stores/*"],
+      "@styles/*": ["src/styles/*"],
+    }
+  },
+  "include": ["src", ".eslintrc.cjs"],
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "exclude": ["node_modules"],
+  "extends": "./tsconfig.node.json"
+}
